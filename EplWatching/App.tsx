@@ -21,7 +21,7 @@ import {
 import WebView from 'react-native-webview';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Entypo from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function HomeScreen() {
   return (
@@ -60,14 +60,22 @@ const App = () => {
           name="뉴스" 
           component={HomeScreen} 
           options={(route)=>({
-            tabBarIcon: <Entypo name={'news'} size={10} color={'red'} />
+            tabBarIcon: ()  =>  <Icon name="newspaper-variant-outline" size={20} color={'red'} />
           })}
         />
-        <Tab.Screen name="경기" component={SettingsScreen} />
+        <Tab.Screen 
+          name="경기" 
+          component={SettingsScreen} 
+          options={(route)=>({
+            tabBarIcon: ()  =>  <Icon name="table-large" size={20} color={'red'} />
+          })}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   sectionContainer: {
