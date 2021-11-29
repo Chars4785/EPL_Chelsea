@@ -19,13 +19,53 @@ import {
   View,
 } from 'react-native';
 import WebView from 'react-native-webview';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Entypo from 'react-native-vector-icons/Entypo';
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+const Tab = createBottomTabNavigator();
 
 const App = () => {
-
   return (
-    <SafeAreaView>
-      
-    </SafeAreaView>
+    // <SafeAreaView
+    //   style={{flex:1}}
+    //   >
+    //   <View>
+    //     <Text>!!!</Text>
+    //   </View>
+    //   <WebView 
+    //     // source={{ uri: `http://localhost:3000` }} 
+    //     source={{ uri: `https://sports.news.naver.com/wfootball/index` }} 
+    //     style={{ flex:1 }}
+    //   />
+    // </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen 
+          name="뉴스" 
+          component={HomeScreen} 
+          options={(route)=>({
+            tabBarIcon: <Entypo name={'news'} size={10} color={'red'} />
+          })}
+        />
+        <Tab.Screen name="경기" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 

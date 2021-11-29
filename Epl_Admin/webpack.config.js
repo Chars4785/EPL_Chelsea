@@ -37,5 +37,7 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
+    index: "index.html",
+    port: 3000
   },
 }
