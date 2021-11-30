@@ -25,9 +25,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <WebView
+        style={{ flex:1, }}
+        source={{ uri: `http://localhost:3000` }} 
+      />
+    </SafeAreaView>
   );
 }
 
